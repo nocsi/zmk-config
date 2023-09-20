@@ -10,7 +10,7 @@ all:
 	yaml2json build.yaml | jq -c '.include[]' > $(BUILD_MATRIX)
 	$(DOCKER) run --rm -it --name zmk \
 		-v $(PWD)/$(BUILD_MATRIX):/app/$(BUILD_MATRIX) \
-		-v $(PWD)/firmware:/app/firmware:z \
+		-v $(PWD)/firmware:/app/firmware \
 		-v $(PWD)/config:/app/config:ro \
 		-e TIMESTAMP=$(TIMESTAMP) \
 		-e BUILD_MATRIX=$(BUILD_MATRIX) \
