@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-config_dir="$(pwd)/config"
+config_dir="${PWD}/config"
 timestamp=$(date -u +"%Y%m%d%H%M%S")
 
 while IFS=$',' read -r board shield; do
@@ -24,8 +24,10 @@ while IFS=$',' read -r board shield; do
         west build -d ${build_dir} -- -DZMK_CONFIG="$config_dir"
     fi
 
-    # # echo -e "${display_name} KConfig\n"
-    # # grep -v -e "^#" -e "^$" ${build_dir}/zephyr/.config | sort
+    if [[ ! -z $OUTPUT_CONFIG ]]; then
+        grep -v -e "^#" -e "^$" ${build_dir}/zephyr/.config | sort > \
+            "firmware/${timestamp}-${artifact_name}.config"
+    fi
 
     cp ${build_dir}/zephyr/zmk.uf2 "firmware/${timestamp}-${artifact_name}.uf2"
 done < <(yq '
