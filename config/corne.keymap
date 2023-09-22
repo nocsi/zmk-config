@@ -8,83 +8,79 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-#define DEFAULT 0
-#define LOWER 1
-#define RAISE 2
-
 #define XXX &none
+
+#define DEFAULT 0
+#define NAV 1
+#define NUM 2
+#define SYM 3
 
 / {
     keymap {
         compatible = "zmk,keymap";
 
-        // Qwerty
-        // ------------------------------------------------------------------------------
-        // | XXX |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | XXX |
-        // | XXX |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  | XXX |
-        // | XXX |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | XXX |
-        // ------------------------------------------------------------------------------
-        // Dvorak
+        // Engram (https://engram.dev)
         // -----------------------------------------------------------------------------
-        // | XXX |  '  |  ,  |  .  |  P  |  Y  |   |  F  |  G  |  C  |  R  |  L  | XXX |
-        // | XXX |  A  |  O  |  E  |  U  |  I  |   |  D  |  H  |  T  |  N  |  S  | XXX |
-        // | XXX |  ;  |  Q  |  J  |  K  |  X  |   |  B  |  M  |  W  |  V  |  Z  | XXX |
-        // -----------------------------------------------------------------------------
-        // Dvorak (Programmer)
-        // -----------------------------------------------------------------------------
-        // | XXX |  ;  |  ,  |  .  |  P  |  Y  |   |  F  |  G  |  C  |  R  |  L  | XXX |
-        // | XXX |  A  |  O  |  E  |  U  |  I  |   |  D  |  H  |  T  |  N  |  S  | XXX |
-        // | XXX |  '  |  Q  |  J  |  K  |  X  |   |  B  |  M  |  W  |  V  |  Z  | XXX |
-        // -----------------------------------------------------------------------------
-        // Colemak DH
-        // -----------------------------------------------------------------------------
-        // | XXX |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L  |  U  |  Y  |  ;  | XXX |
-        // | XXX |  A  |  R  |  S  |  T  |  G  |   |  K  |  N  |  E  |  I  |  O  | XXX |
-        // | XXX |  Z  |  X  |  C  |  D  |  V  |   |  M  |  H  |  ,  |  .  |  /  | XXX |
-        // -----------------------------------------------------------------------------
-        // Engram (https://engram.dev/)
-        // -----------------------------------------------------------------------------
-        // | XXX |  B  |  Y  |  O  |  U  |  '  |   |  "  |  L  |  D  |  W  |  V  | XXX |
-        // | XXX |  C  |  I  |  E  |  A  |  ,  |   |  .  |  H  |  T  |  S  |  N  | XXX |
-        // | XXX |  G  |  X  |  J  |  K  |  Z  |   |  Q  |  R  |  M  |  F  |  P  | XXX |
-        // |                 | ESC | TAB | SPC |   | RET | BCK | DEL |                 |
+        // | XXX |  B  |  Y  |  O  |  U  |  '  | |  "  |  L  |  D  |  W  |  V  | XXX |
+        // | XXX |  C  |  I  |  E  |  A  |  ,  | |  .  |  H  |  T  |  S  |  N  | XXX |
+        // | XXX |  G  |  X  |  J  |  K  |  Z  | |  Q  |  R  |  M  |  F  |  P  | XXX |
+        // |                 | ESC | TAB | SPC | | RET | BCK | DEL |                 |
         // -----------------------------------------------------------------------------
         default_layer {
             label = "Base";
             bindings = <
-                XXX  &kp B  &kp Y  &kp O  &kp U  &kp SQT    &kp SEMI  &kp L  &kp D  &kp W  &kp V  XXX
-                XXX  &kp C  &kp I  &kp E  &kp A  &kp COMMA  &kp DOT   &kp H  &kp T  &kp S  &kp N  XXX
-                XXX  &kp G  &kp X  &kp J  &kp K  &kp Z      &kp Q     &kp R  &kp M  &kp F  &kp P  XXX
-                        &kp ESC  &lt LOWER TAB  &kp SPACE   &kp RET  &lt RAISE BSPC  &kp DEL
-            >;
-        };
-        // -----------------------------------------------------------------------------
-        // |     |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |     |
-        // |     | BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |     |
-        // |     |     |     |     |     |     |   |     |     |     |     |     |     |
-        //                   | GUI |     | SPC |   | ENT |     | ALT |
-        lower_layer {
-            label = "Lower";
-            bindings = <
-                &trans  &kp N1      &kp N2        &kp N3        &kp N4        &kp N5    &kp N6    &kp N7  &kp N8     &kp N9  &kp N0  &trans
-                &trans  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &trans  &trans
-                &trans  &trans      &trans        &trans        &trans        &trans    &trans    &trans  &trans     &trans  &trans  &trans
-                        &kp LGUI  &trans  &kp SPACE    &kp RET  &trans  &kp RALT
+                XXX  &kp B  &kp Y  &kp O    &kp U        &kp SQT         &kp SEMI  &kp L         &kp D  &kp W  &kp V  XXX
+                XXX  &kp C  &kp I  &kp E    &kp A        &kp COMMA       &kp DOT   &kp H         &kp T  &kp S  &kp N  XXX
+                XXX  &kp G  &kp X  &kp J    &kp K        &kp Z           &kp Q     &kp R         &kp M  &kp F  &kp P  XXX
+                                   &kp ESC  &lt NAV TAB  &lt NUM SPACE   &kp RET   &lt SYM BSPC  &kp DEL
             >;
         };
 
         // -----------------------------------------------------------------------------
-        // |     |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |     |
-        // |     |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |     |
-        // |     |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |     |
-        //                   | GUI |     | SPC |   | ENT |     | ALT |
-        raise_layer {
-            label = "Raise";
+        // |     | BTC | BT1 | BT2 | BT3 | BT4 | | LFT | DWN |  UP | RGT |     |     |
+        // |     |     |     |     |     |     | |     |     |     |     |     |     |
+        // |     |     |     |     |     |     | |     |     |     |     |     |     |
+        // |                 |     |     |     | |     |     |     |                 |
+        // -----------------------------------------------------------------------------
+        nav_layer {
+            label = "Nav";
             bindings = <
-                &trans  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT  &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &trans
-                &trans  &trans    &trans  &trans    &trans    &trans     &kp MINUS  &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH  &trans
-                &trans  &trans    &trans  &trans    &trans    &trans     &kp UNDER  &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE  &trans
-                        &kp LGUI  &trans  &kp SPACE   &kp RET  &trans  &kp RALT
+                &trans  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2   &kp LEFT   &kp DOWN  &kp UP  &kp RIGHT  &trans  &trans  &trans
+                &trans  &trans      &trans        &trans        &trans         &trans     &trans    &trans  &trans     &trans  &trans  &trans
+                &trans  &trans      &trans        &trans        &trans         &trans     &trans    &trans  &trans     &trans  &trans  &trans
+                                                  &trans        &trans         &trans     &trans    &trans  &trans
+            >;
+        };
+
+        // -----------------------------------------------------------------------------
+        // |     |     |     |     |     |     | |  /  |  7  |  8  |  9  |  -  |     |
+        // |     |     |     |     |     |     | |  *  |  4  |  5  |  6  |  +  |     |
+        // |     |     |     |     |     |     | |  0  |  1  |  2  |  3  |  .  |     |
+        // |                 |     |     |     | |     |     |     |                 |
+        // -----------------------------------------------------------------------------
+        num_layer {
+            label = "Num";
+            bindings = <
+                &trans  &trans  &trans  &trans  &trans  &trans   &kp KP_DIVIDE    &kp N7  &kp N8  &kp N9  &kp KP_MINUS  &trans
+                &trans  &trans  &trans  &trans  &trans  &trans   &kp KP_MULTIPLY  &kp N4  &kp N5  &kp N6  &kp KP_PLUS   &trans
+                &trans  &trans  &trans  &trans  &trans  &trans   &kp N0           &kp N1  &kp N2  &kp N3  &kp KP_DOT    &trans
+                                        &trans  &trans  &trans   &trans           &trans  &trans
+            >;
+        };
+
+        // -----------------------------------------------------------------------------
+        // |     |  !  |  @  |  #  |  $  |  %  | |  ^  |  &  |  *  |  (  |  )  |     |
+        // |     |     |     |     |     |     | |  -  |  =  |  [  |  ]  |  \  |     |
+        // |     |     |     |     |     |     | |  _  |  +  |  {  |  }  | "|" |     |
+        // |                 |     |     |     | |     |     |     |                 |
+        // -----------------------------------------------------------------------------
+        sym_layer {
+            label = "Sym";
+            bindings = <
+                &trans  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT   &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &trans
+                &trans  &trans    &trans  &trans    &trans    &trans      &kp MINUS  &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH  &trans
+                &trans  &trans    &trans  &trans    &trans    &trans      &kp UNDER  &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE  &trans
+                                          &trans    &trans    &trans      &trans     &trans     &trans
             >;
         };
     };
