@@ -47,7 +47,7 @@
         // | XXX |  B  |  Y  |  O  |  U  |  '  |   |  "  |  L  |  D  |  W  |  V  | XXX |
         // | XXX |  C  |  I  |  E  |  A  |  ,  |   |  .  |  H  |  T  |  S  |  N  | XXX |
         // | XXX |  G  |  X  |  J  |  K  |  Z  |   |  Q  |  R  |  M  |  F  |  P  | XXX |
-        // |                 | GUI | LWR | SPC |   | ENT | RSE | ALT |                 |
+        // |                 | ESC | TAB | SPC |   | RET | BCK | DEL |                 |
         // -----------------------------------------------------------------------------
         default_layer {
             label = "Base";
@@ -55,7 +55,7 @@
                 XXX  &kp B  &kp Y  &kp O  &kp U  &kp SQT    &kp SEMI  &kp L  &kp D  &kp W  &kp V  XXX
                 XXX  &kp C  &kp I  &kp E  &kp A  &kp COMMA  &kp DOT   &kp H  &kp T  &kp S  &kp N  XXX
                 XXX  &kp G  &kp X  &kp J  &kp K  &kp Z      &kp Q     &kp R  &kp M  &kp F  &kp P  XXX
-                        &kp LGUI  &mo LOWER  &kp SPACE   &kp RET  &mo RAISE  &kp RALT
+                        &kp ESC  &lt LOWER TAB  &kp SPACE   &kp RET  &lt RAISE BSPC  &kp DEL
             >;
         };
         // -----------------------------------------------------------------------------
