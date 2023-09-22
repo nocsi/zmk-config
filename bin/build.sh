@@ -28,7 +28,7 @@ while IFS=$',' read -r board shield; do
         west build -s zmk/app -b "$board" -d ${build_dir} -- \
             -DZMK_CONFIG="$CONFIG_DIR" "${extra_cmake_args}"
     else
-        west build -d ${build_dir}
+        west build -d ${build_dir} -- -DZMK_CONFIG="$CONFIG_DIR"
     fi
 
     # echo -e "${display_name} KConfig\n"
