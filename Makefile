@@ -6,9 +6,7 @@ all:
 	$(DOCKER) build --tag zmk --build-arg USER_ID=$(shell id -u) .
 	$(DOCKER) volume create build
 	$(DOCKER) run --rm -it --name zmk \
-        -v $(PWD)/bin:/app/bin:ro \
         -v build:/app \
-        -v $(PWD)/build.yaml:/app/build.yaml:ro \
 		-v $(PWD)/config:/app/config:ro \
         -v $(PWD)/firmware:/app/firmware \
         -e OUTPUT_CONFIG=$(OUTPUT_CONFIG) \
