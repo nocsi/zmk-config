@@ -4,9 +4,10 @@ DOCKER := $(shell { command -v podman || command -v docker; })
 
 all:
 	$(DOCKER) build --tag zmk --build-arg USER_ID=$(shell id -u) .
+	$(DOCKER) volume create build
 	$(DOCKER) run --rm -it --name zmk \
         -v $(PWD)/bin:/app/bin:ro \
-        -v $(PWD)/build:/app/build \
+        -v build:/app \
         -v $(PWD)/build.yaml:/app/build.yaml:ro \
 		-v $(PWD)/config:/app/config:ro \
         -v $(PWD)/firmware:/app/firmware \
@@ -14,7 +15,8 @@ all:
 		zmk
 
 clean:
-	rm -rf firmware/[^.]* build/[^.]*
+	rm -rf firmware/[^.]*
+	$(DOCKER) volume rm build
 
 distclean:
 	$(DOCKER) image rm zmk docker.io/zmkfirmware/zmk-build-arm:stable
