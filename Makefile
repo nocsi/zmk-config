@@ -18,4 +18,4 @@ clean:
 	-$(DOCKER) volume rm build config firmware
 
 distclean: clean
-	-$(DOCKER) image rm zmk docker.io/zmkfirmware/zmk-build-arm:stable
+	-$(DOCKER) image rm zmk
