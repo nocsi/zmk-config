@@ -6,6 +6,7 @@ timestamp=$(date -u +"%Y%m%d%H%M%S")
 while IFS=$',' read -r board shield; do
     extra_cmake_args=${shield:+-DSHIELD="$shield"}
     artifact_name=${shield:+${shield// /-}-}${board}-zmk
+    filename="firmware/${timestamp}-${artifact_name}"
     build_dir="build/${artifact_name}"
 
     echo ""
@@ -25,11 +26,11 @@ while IFS=$',' read -r board shield; do
     fi
 
     if [[ ! -z $OUTPUT_CONFIG ]]; then
-        grep -v -e "^#" -e "^$" ${build_dir}/zephyr/.config | sort > \
-            "firmware/${timestamp}-${artifact_name}.config"
+        grep -v -e "^#" -e "^$" ${build_dir}/zephyr/.config \
+            | sort > "${filename}.config"
     fi
 
-    cp ${build_dir}/zephyr/zmk.uf2 "firmware/${timestamp}-${artifact_name}.uf2"
+    cp ${build_dir}/zephyr/zmk.uf2 "${filename}.uf2"
 done < <(yq '
     [{"board": .board[], "shield": .shield[] // ""}] + .include
     | filter(.board)
