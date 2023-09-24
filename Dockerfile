@@ -21,8 +21,6 @@ RUN west update
 
 RUN west zephyr-export
 
-COPY build.yaml ./
-
 COPY bin/build.sh ./
 
 CMD ["./build.sh"]
