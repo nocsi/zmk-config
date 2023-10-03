@@ -15,11 +15,10 @@ WORKDIR /app
 
 COPY config/west.yml config/west.yml
 
-RUN west init -l config
-
-RUN west update
-
-RUN west zephyr-export
+RUN mkdir -p build \
+    && west init -l config \
+    && west update \
+    && west zephyr-export
 
 COPY bin/build.sh ./
 
