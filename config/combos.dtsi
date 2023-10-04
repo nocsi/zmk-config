@@ -12,15 +12,21 @@
 / {
     combos {
         compatible = "zmk,combos";
+        /**
+         * Place `Q` on lower right pinkie/ring fingers.
+         */
         combo_q {
             key-positions = <33 34>;
             bindings = <&kp Q>;
-            layers = <DEFAULT>;
+            layers = <BASE>;
         };
+        /**
+         * Place `Z` on lower left pinkie/ring fingers.
+         */
         combo_z {
             key-positions = <25 26>;
             bindings = <&kp Z>;
-            layers = <DEFAULT>;
+            layers = <BASE>;
         };
     };
 };

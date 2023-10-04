@@ -1,0 +1,50 @@
+// I'm on ZMK, and I have shift set to balanced, tapping term 50ms, and the rest of my mods set to tap-preferred, with a tapping term of 250ms.
+
+#define MHT(MOD, TAP) &mht MOD TAP
+#define LHT(LAYER, TAP) &lht LAYER TAP
+
+#define SHIFT_BEHAVIOUR(NAME, BINDING, SHIFT_BINDING) \
+/ { \
+  behaviors { \
+    NAME: NAME { \
+      compatible = "zmk,behavior-mod-morph"; \
+      label = #NAME; \
+      #binding-cells = <0>; \
+      bindings = <BINDING>, <SHIFT_BINDING>; \
+      mods = <(MOD_LSFT|MOD_RSFT)>; \
+    }; \
+  }; \
+};
+
+#define BT_SHIFT_BEHAVIOUR(NUM) \
+SHIFT_BEHAVIOUR(bt_sel_##NUM, &bt BT_SEL NUM, &bt_sel_clr NUM)
+
+BT_SHIFT_BEHAVIOUR(0)
+BT_SHIFT_BEHAVIOUR(1)
+BT_SHIFT_BEHAVIOUR(2)
+BT_SHIFT_BEHAVIOUR(3)
+BT_SHIFT_BEHAVIOUR(4)
+
+SHIFT_BEHAVIOUR(out_tog, &out OUT_TOG, &out OUT_USB)
+SHIFT_BEHAVIOUR(_caps_word, &caps_word, &kp CAPS)
+
+/ {
+  behaviors {
+    mht: mht {
+      compatible = "zmk,behavior-hold-tap";
+      label = "mht";
+      #binding-cells = <2>;
+      tapping_term_ms = <TAPPING_TERM>;
+      flavor = "tap-preferred";
+      bindings = <&kp>, <&kp>;
+    };
+    lht: lht {
+      compatible = "zmk,behavior-hold-tap";
+      label = "lht";
+      #binding-cells = <2>;
+      tapping_term_ms = <TAPPING_TERM>;
+      flavor = "tap-preferred";
+      bindings = <&mo>, <&kp>;
+    };
+  };
+};
