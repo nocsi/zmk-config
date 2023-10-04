@@ -21,3 +21,17 @@
 #define STRINGIFY(x) #x
 
 #define _EP_TOG &ext_power EP_TOG
+
+#if defined (CLIPBOARD_FUN)
+    #define _RDO &kp K_AGAIN
+    #define _PST &kp K_PASTE
+    #define _CPY &kp K_COPY
+    #define _CUT &kp K_CUT
+    #define _UND &kp K_UNDO
+#else
+    #define _RDO &kp K_AGAIN
+    #define _PST &kp LS(INS)
+    #define _CPY &kp LC(INS)
+    #define _CUT &kp LS(DEL)
+    #define _UND &kp K_UNDO
+#endif

@@ -5,15 +5,15 @@
 
 #define SHIFT_BEHAVIOUR(NAME, BINDING, SHIFT_BINDING) \
 / { \
-  behaviors { \
-    NAME: NAME { \
-      compatible = "zmk,behavior-mod-morph"; \
-      label = #NAME; \
-      #binding-cells = <0>; \
-      bindings = <BINDING>, <SHIFT_BINDING>; \
-      mods = <(MOD_LSFT|MOD_RSFT)>; \
+    behaviors { \
+        NAME: NAME { \
+            compatible = "zmk,behavior-mod-morph"; \
+            label = #NAME; \
+            #binding-cells = <0>; \
+            bindings = <BINDING>, <SHIFT_BINDING>; \
+            mods = <(MOD_LSFT|MOD_RSFT)>; \
+        }; \
     }; \
-  }; \
 };
 
 #define BT_SHIFT_BEHAVIOUR(NUM) \
@@ -29,22 +29,22 @@ SHIFT_BEHAVIOUR(out_tog, &out OUT_TOG, &out OUT_USB)
 SHIFT_BEHAVIOUR(_caps_word, &caps_word, &kp CAPS)
 
 / {
-  behaviors {
-    mht: mht {
-      compatible = "zmk,behavior-hold-tap";
-      label = "mht";
-      #binding-cells = <2>;
-      tapping_term_ms = <TAPPING_TERM>;
-      flavor = "tap-preferred";
-      bindings = <&kp>, <&kp>;
+    behaviors {
+        mht: mht {
+            compatible = "zmk,behavior-hold-tap";
+            label = "mht";
+            #binding-cells = <2>;
+            tapping_term_ms = <TAPPING_TERM>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+        lht: lht {
+            compatible = "zmk,behavior-hold-tap";
+            label = "lht";
+            #binding-cells = <2>;
+            tapping_term_ms = <TAPPING_TERM>;
+            flavor = "tap-preferred";
+            bindings = <&mo>, <&kp>;
+        };
     };
-    lht: lht {
-      compatible = "zmk,behavior-hold-tap";
-      label = "lht";
-      #binding-cells = <2>;
-      tapping_term_ms = <TAPPING_TERM>;
-      flavor = "tap-preferred";
-      bindings = <&mo>, <&kp>;
-    };
-  };
 };
