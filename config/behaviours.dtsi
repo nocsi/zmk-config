@@ -1,4 +1,6 @@
-// I'm on ZMK, and I have shift set to balanced, tapping term 50ms, and the rest of my mods set to tap-preferred, with a tapping term of 250ms.
+// Note from Reddit:
+//   - I'm on ZMK, and I have shift set to balanced, tapping term 50ms,
+//     and the rest of my mods set to tap-preferred, with a tapping term of 250ms.
 
 #define MHT(MOD, TAP) &mht MOD TAP
 #define LHT(LAYER, TAP) &lht LAYER TAP
