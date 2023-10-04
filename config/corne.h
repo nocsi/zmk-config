@@ -22,6 +22,9 @@
 
 #define _EP_TOG &ext_power EP_TOG
 
+#define _DIV &kp KP_DIVIDE
+#define _MULT &kp KP_MULTIPLY
+
 #if defined (CLIPBOARD_FUN)
     #define _RDO &kp K_AGAIN
     #define _PST &kp K_PASTE
