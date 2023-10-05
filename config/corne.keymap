@@ -67,13 +67,13 @@
             label = "Sym";
             bindings = <
                 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-                    XXX           &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT         &kp CARET     &kp AMPS      XXX           &kp LPAR      &kp RPAR      XXX
+                    XXX           &kp LT        &kp LBKT      &kp RBKT      &kp GT        &kp GRAVE         XXX           XXX           XXX           XXX           XXX           XXX
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                    XXX           XXX           XXX           XXX           XXX           XXX               &kp MINUS     &kp EQUAL     &kp LBKT      &kp RBKT      &kp BSLH      XXX
+                    XXX           &kp DOLLAR    &kp LPAR      &kp RPAR      &kp CARET     &kp BSLH          XXX           &kp LSHFT     &kp LCTRL     &kp LALT      &kp LGUI      XXX
                 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                    XXX           XXX           XXX           XXX           XXX           XXX               &kp UNDER     &kp PLUS      &kp LBRC      &kp RBRC      &kp PIPE      XXX
+                    XXX           &kp EXCL      &kp AT        &kp PERCENT   &kp HASH      &kp AMPS          XXX           XXX           XXX           &kp RALT      XXX           XXX
                 // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                              XXX           XXX           XXX               XXX           XXX           XXX
+                                                              &kp STAR      &kp BSLH      &kp EQUAL         XXX           XXX           XXX
                 //                                           ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
             >;
         };
