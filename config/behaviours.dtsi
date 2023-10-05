@@ -4,6 +4,8 @@
 
 #define MHT(MOD, TAP) &mht MOD TAP
 #define LHT(LAYER, TAP) &lht LAYER TAP
+#define LT_BDEL(LAYER) &lt_bdel LAYER 0
+#define LT_KRPT(LAYER) &lt_krpt LAYER 0
 
 #define SHIFT_BEHAVIOUR(NAME, BINDING, SHIFT_BINDING) \
 / { \
@@ -47,6 +49,30 @@ SHIFT_BEHAVIOUR(_caps_word, &caps_word, &kp CAPS)
             tapping_term_ms = <TAPPING_TERM>;
             flavor = "tap-preferred";
             bindings = <&mo>, <&kp>;
+        };
+        bspc_del: backspace_delete {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BACKSPACE_DELETE";
+            #binding-cells = <0>;
+            bindings = <&kp BACKSPACE>, <&kp DELETE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_RSFT)>;
+        };
+        lt_bdel: lt_backspace_delete {
+            compatible = "zmk,behavior-hold-tap";
+            label = "lt_backspace_delete";
+            #binding-cells = <2>;
+            tapping_term_ms = <TAPPING_TERM>;
+            flavor = "tap-preferred";
+            bindings = <&mo>, <&bspc_del>;
+        };
+        lt_krpt: lt_key_repeat {
+            compatible = "zmk,behavior-hold-tap";
+            label = "lt_key_repeat";
+            #binding-cells = <2>;
+            tapping_term_ms = <TAPPING_TERM>;
+            flavor = "tap-preferred";
+            bindings = <&mo>, <&key_repeat>;
         };
     };
 };
