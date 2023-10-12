@@ -32,6 +32,10 @@ BT_SHIFT_BEHAVIOUR(4)
 SHIFT_BEHAVIOUR(out_tog, &out OUT_TOG, &out OUT_USB)
 SHIFT_BEHAVIOUR(_caps_word, &caps_word, &kp CAPS)
 
+&caps_word {
+    continue-list = <UNDERSCORE MINUS BACKSPACE DELETE>;
+};
+
 / {
     behaviors {
         mht: mht {
