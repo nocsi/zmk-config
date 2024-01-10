@@ -11,7 +11,6 @@
          */
         bt_sel_clr: bt_sel_clr {
             compatible = "zmk,behavior-macro-one-param";
-            label = "ZM_BT_SEL_CLR";
             wait-ms = <0>;
             #binding-cells = <1>;
             bindings
