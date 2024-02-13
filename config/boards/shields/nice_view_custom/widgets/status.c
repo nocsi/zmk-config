@@ -153,7 +153,7 @@ static void draw_middle(lv_obj_t *widget, lv_color_t cbuf[], const struct status
                            &arc_dsc);
 
         if (selected) {
-            lv_canvas_draw_arc(canvas, circle_offsets[i][0], circle_offsets[i][1], 9, 0, 359,
+            lv_canvas_draw_arc(canvas, circle_offsets[i][0], circle_offsets[i][1], 9, 0, 360,
                                &arc_dsc_filled);
         }
 
@@ -180,7 +180,7 @@ static void draw_bottom(lv_obj_t *widget, lv_color_t cbuf[], const struct status
 
     // Draw layer
     if (state->layer_label == NULL) {
-        char text[9] = {};
+        char text[10] = {};
 
         sprintf(text, "LAYER %i", state->layer_index);
 
