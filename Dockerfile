@@ -19,7 +19,7 @@ RUN west init -l config \
     && west update \
     && west zephyr-export
 
-RUN mkdir -p build
+RUN mkdir -p build/{corne-left,corne-right,settings-reset}
 
 COPY bin/build.sh ./
 
