@@ -1,6 +1,6 @@
 manifest:
   remotes:
-    - name: zmkfirmware-personal
+    - name: zmk-config
       url-base: https://github.com/nocsi
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
@@ -37,7 +37,7 @@ manifest:
     #   revision: main
     #   import: app/west.yml
     - name: zmk
-      remote: zmkfirmware-personal
+      remote: zmk-config
       revision: mousemove-molock
       clone-depth: 1
       import: app/west.yml
